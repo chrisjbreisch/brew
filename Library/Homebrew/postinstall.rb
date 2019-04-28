@@ -7,7 +7,7 @@ require "socket"
 require "os/universal_socket"
 
 begin
-  error_pipe = UniversalSocket.open
+  error_pipe = OS::UniversalSocket.open
 
   trap("INT", old_trap)
 

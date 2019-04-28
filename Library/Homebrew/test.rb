@@ -12,7 +12,7 @@ require "os/universal_socket"
 TEST_TIMEOUT_SECONDS = 5 * 60
 
 begin
-  error_pipe = UniversalSocket.open
+  error_pipe = OS::UniversalSocket.open
 
   ENV.extend(Stdenv)
   ENV.setup_build_environment

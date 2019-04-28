@@ -26,7 +26,7 @@ module Utils
   end
 
   def self.safe_fork(&_block)
-    UniversalServer.open do |server|
+    OS::UniversalServer.open do |server|
       read, write = IO.pipe
 
       pid = fork do

@@ -3,13 +3,15 @@
 require "extend/ENV"
 require "socket"
 
-class UniversalSocket
-  def self.open
-    port = ENV["HOMEBREW_ERROR_PIPE"].to_i
-    socket = TCPSocket.new("127.0.0.1", port)
+module OS
+  class UniversalSocket
+    def self.open
+      port = ENV["HOMEBREW_ERROR_PIPE"].to_i
+      socket = TCPSocket.new("127.0.0.1", port)
 
-    return socket unless block_given?
+      return socket unless block_given?
 
-    yield socket
+      yield socket
+    end
   end
 end
